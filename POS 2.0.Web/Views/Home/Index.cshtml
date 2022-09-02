@@ -1,0 +1,157 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="subheader py-5 py-lg-10 gutter-b subheader-transparent" id="kt_subheader" style="background-color: #663259; background-position: right bottom; background-size: auto 100%; background-repeat: no-repeat; background-image: url(assets/media/svg/patterns/taieri.svg)">
+    <div class="container d-flex flex-column">
+        <div class="d-flex align-items-sm-end flex-column flex-sm-row mb-5">
+            <h2 class="d-flex align-items-center text-white mr-5 mb-0">POS 2.0 | ANAS PHONE</h2>
+            <span class="text-white opacity-80 font-weight-bold">Content Management System</span>
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-custom">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-icon">
+                        <i class="flaticon2-user text-primary"></i>
+                    </span>
+                    <h3 class="card-label">
+                        Users
+                    </h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <h2>@Model.UserCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-custom">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-icon">
+                        <i class="flaticon2-avatar text-primary"></i>
+                    </span>
+                    <h3 class="card-label">
+                        Employees
+                    </h3>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <h2>@Model.EmployeeCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-custom">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-icon">
+                        <i class="flaticon2-supermarket text-primary"></i>
+                    </span>
+                    <h3 class="card-label">
+                        Cash Sales
+                    </h3>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <h2>@Model.CashSaleCount</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-custom">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-icon">
+                        <i class="flaticon2-medical-records text-primary"></i>
+                    </span>
+                    <h3 class="card-label">
+                        Premium Sales
+                    </h3>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <h2>@Model.PremiumSaleCount</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+            <span class="card-icon">
+                <i class="fas fa-money-check-alt"></i>
+            </span>
+            <h3 class="card-label">
+                Budget
+            </h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        Total Capital
+                    </th>
+                    <th>
+                        Total CashSale
+                    </th>
+                    <th>
+                        Total Premium Sale
+                    </th>
+                    <th>
+                        Total Debts
+                    </th>
+                    <th>
+                        Total Employees Salary
+                    </th>
+                    <th>
+                        Total Exenses
+                    </th>
+                    <th>
+                        Profet
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        @Model.TotalCapital
+                    </th>
+                    <th>
+                        @Model.TotalCashSale
+                    </th>
+                    <th>
+                        @Model.TotalPremiumSale
+                    </th>
+                    <th>
+                        @Model.TotalDebts
+                    </th>
+                    <th>
+                        @Model.TotalEmployeesSalary
+                    </th>
+                    <th>
+                        @Model.TotalExenses
+                    </th>
+                    <th>
+                        @Model.Profet
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿
+@model POS_2._0.Web.Models.Premium
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br />
+<h1>Edit</h1>
+<h4>Premium</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">Name Customer</label>
+                <select data-live-search="true" asp-for="PremiumSaleId" class="form-control selectpicker" asp-items="ViewBag.PremiumSale"></select>
+                <span asp-validation-for="PremiumSaleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Premium Value</label>
+                <input asp-for="PremiumValue" class="form-control" />
+                <span asp-validation-for="PremiumValue" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-danger" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

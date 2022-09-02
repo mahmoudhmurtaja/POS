@@ -1,0 +1,171 @@
+﻿@model POS_2._0.Web.Models.PremiumSale
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+<h1>Create</h1>
+<h4>Add Premium Sale</h4>
+<hr />
+
+<form asp-action="Create" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Name Item</label>
+                <select data-live-search="true" asp-for="ItemId" class="form-control selectpicker" asp-items="ViewBag.Item">
+                    <option>--Select--</option>
+                </select>
+                <span asp-validation-for="ItemId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">First Premium</label>
+                <input asp-for="FirstPremium" class="form-control" />
+                <span asp-validation-for="FirstPremium" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Agreed Premium</label>
+                <input asp-for="AgreedPremium" class="form-control" />
+                <span asp-validation-for="AgreedPremium" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <h4>Customer Data</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Customer Name</label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Customer Id No</label>
+                <input asp-for="CustomerIdNo" class="form-control" />
+                <span asp-validation-for="CustomerIdNo" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Customer Modile</label>
+                <input asp-for="CustomerModile" class="form-control" />
+                <span asp-validation-for="CustomerModile" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Customer Email</label>
+                <input asp-for="CustomerEmail" class="form-control" />
+                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Customer Adress</label>
+                <input asp-for="CustomerAdress" class="form-control" />
+                <span asp-validation-for="CustomerAdress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Customer Id Image</label>
+                <input type="file" name="Customerfile" class="form-control" />
+                <span asp-validation-for="CustomerIdImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <h4>Guarantor Data</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Guarantor Name</label>
+                <input asp-for="GuarantorName" class="form-control" />
+                <span asp-validation-for="GuarantorName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Guarantor Id No</label>
+                <input asp-for="GuarantorIdNo" class="form-control" />
+                <span asp-validation-for="GuarantorIdNo" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Guarantor Modile</label>
+                <input asp-for="GuarantorModile" class="form-control" />
+                <span asp-validation-for="GuarantorModile" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Guarantor Email</label>
+                <input asp-for="GuarantorEmail" class="form-control" />
+                <span asp-validation-for="GuarantorEmail" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Guarantor Adress</label>
+                <input asp-for="GuarantorAdress" class="form-control" />
+                <span asp-validation-for="GuarantorAdress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Guarantor Id Image</label>
+                <input type="file" name="Guarantorfile" class="form-control" />
+                <span asp-validation-for="GuarantorIdImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">Attachment</label>
+                <input type="file" name="Attachmentfile" class="form-control" />
+                <span asp-validation-for="AttachmentUrl" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-danger" asp-action="Index">Back to List</a>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

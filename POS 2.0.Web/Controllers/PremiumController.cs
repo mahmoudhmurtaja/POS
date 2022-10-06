@@ -23,10 +23,16 @@ namespace POS_2._0.Web.Controllers
         {
             var numberOFPremiums = _DB.Premiums.Count(x => !x.IsDelete && (x.PremiumSale.CustomerName.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)));
 
-            var numberOFPages = Math.Ceiling(numberOFPremiums / 20.0);
-            var skipValue = (page - 1) * 20;
-            var takeValue = 20;
-            var Premiums = _DB.Premiums.Include(x => x.PremiumSale).Where(x => !x.IsDelete && (x.PremiumSale.CustomerName.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey))).Skip(skipValue).Take(takeValue).ToList();
+            var numberOFPages = Math.Ceiling(numberOFPremiums / 10.0);
+            var skipValue = (page - 1) * 10;
+            var takeValue = 10;
+            var Premiums = _DB.Premiums.Include(x => x.PremiumSale)
+                .Where(x => !x.IsDelete 
+                && (x.PremiumSale.CustomerName.Contains(SearchKey) 
+                || string.IsNullOrEmpty(SearchKey)))
+                .Skip(skipValue)
+                .Take(takeValue)
+                .ToList();
 
             ViewBag.page = page;
             ViewBag.numberOFPages = numberOFPages;

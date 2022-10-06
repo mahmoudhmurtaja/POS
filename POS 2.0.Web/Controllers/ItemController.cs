@@ -23,10 +23,14 @@ namespace POS_2._0.Web.Controllers
         {
             var numberOFItems = _DB.Items.Count(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)));
 
-            var numberOFPages = Math.Ceiling(numberOFItems / 20.0);
-            var skipValue = (page - 1) * 20;
-            var takeValue = 20;
-            var Items = _DB.Items.Include(x => x.ItemCategory).Where(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey))).Skip(skipValue).Take(takeValue).ToList();
+            var numberOFPages = Math.Ceiling(numberOFItems / 10.0);
+            var skipValue = (page - 1) * 10;
+            var takeValue = 10;
+            var Items = _DB.Items.Include(x => x.ItemCategory)
+                .Where(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)))
+                .Skip(skipValue)
+                .Take(takeValue)
+                .ToList();
 
             ViewBag.page = page;
             ViewBag.numberOFPages = numberOFPages;

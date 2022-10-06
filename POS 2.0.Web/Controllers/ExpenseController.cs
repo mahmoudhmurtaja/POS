@@ -23,10 +23,13 @@ namespace POS_2._0.Web.Controllers
         {
             var numberOFExpenses = _DB.Expenses.Count(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)));
 
-            var numberOFPages = Math.Ceiling(numberOFExpenses / 20.0);
-            var skipValue = (page - 1) * 20;
-            var takeValue = 20;
-            var Expenses = _DB.Expenses.Where(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey))).Skip(skipValue).Take(takeValue).ToList();
+            var numberOFPages = Math.Ceiling(numberOFExpenses / 10.0);
+            var skipValue = (page - 1) * 10;
+            var takeValue = 10;
+            var Expenses = _DB.Expenses.Where(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)))
+                .Skip(skipValue)
+                .Take(takeValue)
+                .ToList();
 
             ViewBag.page = page;
             ViewBag.numberOFPages = numberOFPages;

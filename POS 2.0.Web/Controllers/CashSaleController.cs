@@ -26,10 +26,14 @@ namespace POS_2._0.Web.Controllers
         {
             var numberOFCashSales = _DB.CashSales.Count(x => !x.IsDelete && (x.Item.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)));
             
-            var numberOFPages = Math.Ceiling(numberOFCashSales / 20.0);
-            var skipValue = (page - 1) * 20;
-            var takeValue = 20;
-            var CashSales = _DB.CashSales.Include(x => x.Item).Where(x => !x.IsDelete && (x.Item.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey))).Skip(skipValue).Take(takeValue).ToList();
+            var numberOFPages = Math.Ceiling(numberOFCashSales / 10.0);
+            var skipValue = (page - 1) * 10;
+            var takeValue = 10;
+            var CashSales = _DB.CashSales.Include(x => x.Item)
+                .Where(x => !x.IsDelete && (x.Item.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)))
+                .Skip(skipValue)
+                .Take(takeValue)
+                .ToList();
             
             ViewBag.page = page;
             ViewBag.numberOFPages = numberOFPages;

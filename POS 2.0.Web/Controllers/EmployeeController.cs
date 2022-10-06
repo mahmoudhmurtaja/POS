@@ -27,11 +27,15 @@ namespace POS_2._0.Web.Controllers
         public IActionResult Index(string SearchKey, Gender? GenderType, int page = 1)
         {
             var numberOFEmployees = _DB.Employees.Count(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)) && (x.Gender == GenderType || GenderType == null));
-            var numberOFPages = Math.Ceiling(numberOFEmployees / 20.0);
-            var skipValue = (page - 1) * 20;
-            var takeValue = 20;
+            var numberOFPages = Math.Ceiling(numberOFEmployees / 10.0);
+            var skipValue = (page - 1) * 10;
+            var takeValue = 10;
 
-            var employees = _DB.Employees.Where(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey)) && (x.Gender == GenderType || GenderType == null)).Skip(skipValue).Take(takeValue).ToList();
+            var employees = _DB.Employees .Where(x => !x.IsDelete && (x.Name.Contains(SearchKey) || string.IsNullOrEmpty(SearchKey))
+                && (x.Gender == GenderType || GenderType == null))
+                .Skip(skipValue)
+                .Take(takeValue)
+                .ToList();
 
             ViewBag.page = page;
             ViewBag.numberOFPages = numberOFPages;

@@ -48,7 +48,7 @@ namespace Clinic.Web.Services.Emails
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("tgsdk15@gmail.com", "0599656789")
+                Credentials = new NetworkCredential("tgsdk15@gmail.com", "*************")
             }; 
             await emailClient.SendMailAsync(message);
         }

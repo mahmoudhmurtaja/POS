@@ -101,7 +101,7 @@ namespace POS_2._0.Web
 
             //using var scope = app.ApplicationServices.CreateScope();
             //var emailService = scope.ServiceProvider.GetService<IEmailSender>();
-            //RecurringJob.AddOrUpdate(() => emailService.Send("tgsdk13@gmail.com", "ãä ÝÖáß", "Õáì Úáì ÇáäÈí"), Cron.Minutely);
+            //RecurringJob.AddOrUpdate(() => emailService.Send("test@gmail.com", "Ã£Ã¤ ÃÃ–Ã¡ÃŸ", "Ã•Ã¡Ã¬ ÃšÃ¡Ã¬ Ã‡Ã¡Ã¤ÃˆÃ­"), Cron.Minutely);
 
             app.UseEndpoints(endpoints =>
             {
